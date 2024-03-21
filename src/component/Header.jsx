@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { CiMenuKebab } from "react-icons/ci";
 import {NavLink} from 'react-router-dom';
-//import logo from '../component/images/Logo.png'
-import { GiFoodTruck } from "react-icons/gi";
 import { IoFastFoodOutline } from "react-icons/io5";
 const Header = () => {
 const [menu,setMenu] = useState(false);
