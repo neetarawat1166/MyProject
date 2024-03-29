@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoPersonCircle } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import food from './images/food3.avif';
 import {NavLink} from 'react-router-dom';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const [showPassword,setShowPassword] =useState(false);
+
   return (
     <>
       <div className='section w-[100%] py-[50px] bg-gray-800'>
@@ -21,8 +25,14 @@ const Login = () => {
                     <input className='outline-none md:border-b-4 rounded-md border-amber-700 text-white bg-transparent placeholder:text-white md:px-8' type="text" placeholder='Enter your email...' /><br />
                  
                     <div className='flex md:mr-[30%] justify-center items-center'><CiLock  className='text-7xl md:ml-[30%] mt-8 font-semibold' /></div>
-                    <input className='outline-none md:border-b-4 rounded-md border-amber-700 text-white bg-transparent placeholder:text-white md:px-8' type="password" placeholder='Enter your password...' /> 
-                  
+                    <div className='relative'>
+                      <input className='outline-none md:border-b-4 rounded-md border-amber-700 text-white bg-transparent placeholder:text-white md:px-8' type={showPassword ? "text" : "password"} placeholder='Enter your password...' /> 
+                      <div className='absolute bottom-[50%] right-3 cursor-pointer translate-y-[50%]' onClick={() => setShowPassword(prev => !prev)}
+>  
+                      {showPassword ? <FaEye /> : <FaEyeSlash />}
+                      </div>
+                    </div>
+                   
                   <p className='text-[#ffff] flex justify-end py-2 px-2'>Forgot password?</p>
                   <div className='justify-center items-center flex py-8'>
                   <button className='bg-amber-600 px-6 py-2 rounded-md text-white font-semibold hover:bg-[#3b363675] border-2 hover:border-amber-600'>Login</button>
@@ -50,3 +60,22 @@ const Login = () => {
 }
 
 export default Login
+
+// import React from 'react'
+
+// const Login = () => {
+//   return (
+//     <>
+    
+//       <form action=''>
+//         <div>
+//           <label>Enter-email</label>
+//           <input type='text' placeholder='enter your email'></input>
+//         </div>
+//       </form>
+
+//     </>
+//   )
+// }
+
+// export default Login
